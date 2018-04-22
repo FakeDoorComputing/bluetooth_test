@@ -1,15 +1,18 @@
 var mac="B8:27:EB:D2:4A:3F"; /* MAC address of Raspberry Pi Bluetooth module */
 
+$(document).on('pageinit', function(){
+  check_conn();
+})
 
 // connect to the raspberry pi
 function connect(){
-  bluesy.connect(mac, con_success, con_failure);
+  bluetoothSerial.connect(mac, con_success, con_failure);
 }
 
 // connection successful
 function con_success(){
   $("#display").html("Connected\n")
-  bluesy.read(function (data){
+  bluetoothSerial.read(function (data){
     $("#display").html(data+"\n");
   });
   disconnect();
@@ -22,7 +25,7 @@ function con_failure(){
 
 // disconnect bluetooth
 function disconnect(){
-  bluesy.disconnect(dis_success, dis_failure);
+  bluetoothSerial.disconnect(dis_success, dis_failure);
 }
 
 // disconnection successful
@@ -35,4 +38,10 @@ function dis_failure(){
   alert("ERROR DISCONNECTING");
 }
 
-connect();
+function check_conn(){
+  bluetoothSerial.isEnabled(connect, bt_off);
+}
+
+function bt_off(){
+  alert("Bluetooth not on");
+}
