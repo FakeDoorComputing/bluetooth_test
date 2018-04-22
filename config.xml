@@ -10,6 +10,8 @@
 
   <!--Plugin to support gathering of bluetooth data-->
   <plugin name="bluesy"/>
+  <plugin name="cordova-plugin-bluesy"/>
+  <plugin name="cordova-plugin-whitelist" version="1" />
 
   <author href="symonhambrey.worcestercomputing.com" email="symonhambrey@gmail.com">
     Spherical Systems
