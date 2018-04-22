@@ -10,7 +10,7 @@
 
   <!--Plugin to support gathering of bluetooth data-->
   <plugin name="cordova-plugin-bluetooth-serial"/>
-  
+  <gap:plugin name="cordova-plugin-bluetooth-serial" source="npm" />
   <plugin name="cordova-plugin-whitelist" version="1" />
 
   <author href="symonhambrey.worcestercomputing.com" email="symonhambrey@gmail.com">
