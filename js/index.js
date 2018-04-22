@@ -14,7 +14,7 @@ document.addEventListener('deviceready',
   function connect(){
     console.log("bluetooth is on");
     bluetoothSerial.connect(mac, function(){
-      while true{
+      while(true){
         con_success();
       }
     }, con_failure);
