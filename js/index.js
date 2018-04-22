@@ -25,12 +25,12 @@ document.addEventListener('deviceready',
     bluetoothSerial.write("connected");
     bluetoothSerial.subscribe("\n",function (data){
       $("#display").html("*"+data+"*");
-      if(data=="locked\n"){
+/*      if(data=="locked\n"){
         $("#display").html("Locked");
       }
       else{
         $("#display").html("Unlocked");
-      }
+      }*/
     });
     bluetoothSerial.clear();
   }
