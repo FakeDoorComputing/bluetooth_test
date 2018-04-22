@@ -14,10 +14,10 @@ function connect(){
 function con_success(){
   $("#display").html("Connected\n")
   bluetoothSerial.write("connected");
-  bluetoothSerial.subscribe("eof",function (data){
-    $("#display").html(data+"\n");
+  bluetoothSerial.subscribe("\n",function (data){
+    if(data!="eof")
+      $("#display").html(data+"\n");
   });
-/*  disconnect();*/
 }
 
 // connection unsuccessful
