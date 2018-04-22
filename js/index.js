@@ -13,13 +13,11 @@ function connect(){
 // connection successful
 function con_success(){
   $("#display").html("Connected\n")
-  bluetoothSerial.write("Hello World");
-  /*
+  bluetoothSerial.write("connected");
   bluetoothSerial.read(function (data){
     $("#display").html(data+"\n");
   });
-  disconnect();
-  */
+/*  disconnect();*/
 }
 
 // connection unsuccessful
