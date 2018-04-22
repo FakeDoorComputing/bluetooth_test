@@ -6,6 +6,7 @@ document.addEventListener('deviceready',
 
 // connect to the raspberry pi
 function connect(){
+  console.log("bluetooth is on");
   bluetoothSerial.connect(mac, con_success, con_failure);
 }
 
