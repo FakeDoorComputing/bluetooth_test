@@ -16,7 +16,7 @@ function con_success(){
   bluetoothSerial.write("connected");
   bluetoothSerial.subscribe("\n",function (data){
     $("#display").html("*"+data+"*");
-    if(data=="locked "){
+    if(data=="locked\n"){
       $("#display").html("Locked");
     }
     else{
