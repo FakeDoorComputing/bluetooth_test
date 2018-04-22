@@ -8,9 +8,11 @@ function connect(){
 
 // connection successful
 function con_success(){
+  $("#display").html("Connected\n")
   bluesy.read(function (data){
-    $("#display").text(data+"\n");
+    $("#display").html(data+"\n");
   });
+  disconnect();
 }
 
 // connection unsuccessful
@@ -33,4 +35,4 @@ function dis_failure(){
   alert("ERROR DISCONNECTING");
 }
 
-connect();  
+connect();
