@@ -22,6 +22,7 @@ $(document).ready(function(){
     /* connect to the hard coded MAC address of the PI */
     bluetoothSerial.connect(mac, function(){
       connected=true;
+      console.log("connected=true");
       /* send connected signal to pi */
     /*  bluetoothSerial.write("connected"); */
       con_success();
@@ -30,11 +31,15 @@ $(document).ready(function(){
 
   // connection successful
   function con_success(){
+    console.log("con_success")
     /* keep looping through con_success*/
     while(connected==true){
+      console.log("in the loop")
       /* keep listening for data from pi */
       $("#message").append("\nListening....");
+      console.log("listening")
       bluetoothSerial.subscribe("\n",function (data){
+        console.log("subscribe finished")
         $("#message").append("\n*"+data+"*");
   /*      if(data=="locked\n"){
           $("#display").html("Locked");
@@ -44,6 +49,7 @@ $(document).ready(function(){
         }   */
       });
       /* empty the buffer */
+      console.log("clear the buffer")
       bluetoothSerial.clear();
     }
   }
