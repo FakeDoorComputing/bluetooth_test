@@ -1,4 +1,4 @@
-var mac="B8:27:EB:D2:4A:3F"; /* MAC address of Raspberry Pi Bluetooth module */
+var mac="B8:27:EB:D2:4A:3F", connected=false; /* MAC address of Raspberry Pi Bluetooth module */
 
 // (document).ready for desktop, 'deviceready' for mobile
 $(document).ready(function(){
@@ -21,6 +21,7 @@ $(document).ready(function(){
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
     bluetoothSerial.connect(mac, function(){
+      connected=true;
       /* send connected signal to pi */
     /*  bluetoothSerial.write("connected"); */
       con_success();
@@ -30,7 +31,7 @@ $(document).ready(function(){
   // connection successful
   function con_success(){
     /* keep looping through con_success*/
-    while(true){
+    while(connected==true){
       /* keep listening for data from pi */
       $("#message").append("\nListening....");
       bluetoothSerial.subscribe("\n",function (data){
