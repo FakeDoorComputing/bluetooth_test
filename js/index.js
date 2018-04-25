@@ -3,7 +3,7 @@ var mac="B8:27:EB:D2:4A:3F", connected=false; /* MAC address of Raspberry Pi Blu
 // (document).ready for desktop, 'deviceready' for mobile
 //$(document).ready(function(){
 document.addEventListener('deviceready',
-  function(){ 
+  function(){
     $("button").click(function(){
       /* when the button is clicked, check if bluetooth is on */
       check_conn()
@@ -20,13 +20,15 @@ document.addEventListener('deviceready',
     $("#message").html("Bluetooth is on");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
-    bluetoothSerial.connect(mac, function(){
-      connected=true;
-      console.log("connected=true");
-      /* send connected signal to pi */
-    /*  bluetoothSerial.write("connected"); */
-      con_success();
-    }, con_failure);
+    bluetoothSerial.connect(mac, connected, con_failure);
+  }
+
+  function connected(){
+    connected=true;
+    console.log("connected=true");
+    /* send connected signal to pi */
+  /*  bluetoothSerial.write("connected"); */
+    con_success();
   }
 
   // connection successful
