@@ -32,8 +32,9 @@ $(document).ready(function(){
     /* keep looping through con_success*/
     while(true){
       /* keep listening for data from pi */
+      $("#message").append("\nListening....");
       bluetoothSerial.subscribe("\n",function (data){
-        $("#message").html("*"+data+"*");
+        $("#message").append("\n*"+data+"*");
   /*      if(data=="locked\n"){
           $("#display").html("Locked");
         }
