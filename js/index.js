@@ -17,11 +17,12 @@ $(document).ready(function(){
 
   // connect to the raspberry pi
   function connect(){
+    $("#message").html("Bluetooth is on");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
     bluetoothSerial.connect(mac, function(){
       /* send connected signal to pi */
-      bluetoothSerial.write("connected");
+    /*  bluetoothSerial.write("connected"); */
       con_success();
     }, con_failure);
   }
@@ -32,7 +33,7 @@ $(document).ready(function(){
     while(true){
       /* keep listening for data from pi */
       bluetoothSerial.subscribe("\n",function (data){
-        $("#display").html("*"+data+"*");
+        $("#message").html("*"+data+"*");
   /*      if(data=="locked\n"){
           $("#display").html("Locked");
         }
