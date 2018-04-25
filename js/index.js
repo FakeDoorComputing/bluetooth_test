@@ -1,9 +1,9 @@
 var mac="B8:27:EB:D2:4A:3F", connected=false; /* MAC address of Raspberry Pi Bluetooth module */
 
 // (document).ready for desktop, 'deviceready' for mobile
-$(document).ready(function(){
-/*document.addEventListener('deviceready',
-  function(){ */
+//$(document).ready(function(){
+document.addEventListener('deviceready',
+  function(){ 
     $("button").click(function(){
       /* when the button is clicked, check if bluetooth is on */
       check_conn()
