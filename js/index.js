@@ -11,14 +11,14 @@ document.addEventListener('deviceready',
   },false);
 
   function check_conn(){
-    $("#message").append("\nChecking bluetooth status...");
+    $("#message").append("<p>\n\nChecking bluetooth status...</p>");
     /* if bluetooth is on, connect, else show warning */
     bluetoothSerial.isEnabled(connect, bt_off);
   }
 
   // connect to the raspberry pi
   function connect(){
-    $("#message").append("\nBluetooth is on");
+    $("#message").append("<p>\n\nBluetooth is on</p>");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
     bluetoothSerial.connect(mac, app.connected, con_failure);
@@ -27,7 +27,7 @@ document.addEventListener('deviceready',
   var app={ connected: function(){
     connected=true;
     console.log("connected=true");
-    $("#message").append("\nconnected=true");
+    $("#message").append("<p>\n\nconnected=true</p>");
     /* send connected signal to pi */
   /*  bluetoothSerial.write("connected"); */
     con_success(connected);
@@ -44,7 +44,7 @@ document.addEventListener('deviceready',
     //  console.log("listening")
       bluetoothSerial.subscribe("\n",function (data){
         console.log("subscribe finished")
-        $("#message").append("\n*"+data+"*");
+        $("#message").append("</p>\n*"+data+"*</p>");
       },function(){
         console.log("no data recieved");
       });
