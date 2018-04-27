@@ -1,4 +1,4 @@
-var mac="B8:27:EB:D2:4A:3F", connected=false; /* MAC address of Raspberry Pi Bluetooth module */
+var connected=false; /* MAC address of Raspberry Pi Bluetooth module */
 
 // (document).ready for desktop, 'deviceready' for mobile
 //$(document).ready(function(){
@@ -21,18 +21,24 @@ document.addEventListener('deviceready',
     $("#message").append("<p>\n\nBluetooth is on</p>");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
-    bluetoothSerial.connect(mac, app.connected, con_failure);
+    bluetoothSerial.connect(app.mac_add, app.connected, app.con_failure);
   }
 
-  var app={ connected: function(){
-    connected=true;
-    console.log("connected=true");
-    $("#message").append("<p>\n\nconnected=true</p>");
+  var app={
+    mac_add: "B8:27:EB:D2:4A:3F",
+    connected: function(){
+      connected=true;
+      console.log("connected=true");
+      $("#message").append("<p>\n\nconnected=true</p>");
     /* send connected signal to pi */
   /*  bluetoothSerial.write("connected"); */
-    con_success();
+      con_success();
+    },
+  // connection unsuccessful
+    con_failure: function con_failure(){
+      alert("ERROR CONNECTING");
+    }
   }
-}
   // connection successful
   function con_success(){
     console.log("con_success, "+connected)
@@ -49,14 +55,9 @@ document.addEventListener('deviceready',
         console.log("no data recieved");
       });
       /* empty the buffer */
-      console.log("clear the buffer")
+    //  console.log("clear the buffer")
     //  bluetoothSerial.clear();
     }
-  }
-
-  // connection unsuccessful
-  function con_failure(){
-    alert("ERROR CONNECTING");
   }
 
   // disconnect bluetooth

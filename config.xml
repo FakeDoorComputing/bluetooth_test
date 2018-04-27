@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.phonegap.bt.test"
     versionCode = "1"
-    version     = "0.36" >
+    version     = "0.37" >
 
 
   <name>Bluetooth Test</name>
