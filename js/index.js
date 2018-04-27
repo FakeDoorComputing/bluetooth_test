@@ -38,23 +38,19 @@ document.addEventListener('deviceready',
     console.log("con_success")
     /* keep looping through con_success*/
     while(connected==true){
-      console.log("in the loop")
+    //  console.log("in the loop")
       /* keep listening for data from pi */
-      $("#message").append("\nListening....");
-      console.log("listening")
+    //  $("#message").append("\nListening....");
+    //  console.log("listening")
       bluetoothSerial.subscribe("\n",function (data){
         console.log("subscribe finished")
         $("#message").append("\n*"+data+"*");
-  /*      if(data=="locked\n"){
-          $("#display").html("Locked");
-        }
-        else{
-          $("#display").html("Unlocked");
-        }   */
+      },function(){
+        console.log("no data recieved");
       });
       /* empty the buffer */
-      console.log("clear the buffer")
-      bluetoothSerial.clear();
+    //  console.log("clear the buffer")
+    //  bluetoothSerial.clear();
     }
   }
 
