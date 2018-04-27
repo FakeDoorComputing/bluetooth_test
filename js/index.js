@@ -26,13 +26,14 @@ document.addEventListener('deviceready',
   function connected(){
     connected=true;
     console.log("connected=true");
+    $("#message").html("connected=true");
     /* send connected signal to pi */
   /*  bluetoothSerial.write("connected"); */
-    con_success();
+    con_success(connected);
   }
 
   // connection successful
-  function con_success(){
+  function con_success(connected){
     console.log("con_success")
     /* keep looping through con_success*/
     while(connected==true){
