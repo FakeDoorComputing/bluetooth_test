@@ -11,13 +11,14 @@ document.addEventListener('deviceready',
   },false);
 
   function check_conn(){
+    $("#message").append("\nChecking bluetooth status...");
     /* if bluetooth is on, connect, else show warning */
     bluetoothSerial.isEnabled(connect, bt_off);
   }
 
   // connect to the raspberry pi
   function connect(){
-    $("#message").html("Bluetooth is on");
+    $("#message").append("\nBluetooth is on");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
     bluetoothSerial.connect(mac, connected, con_failure);
@@ -26,7 +27,7 @@ document.addEventListener('deviceready',
   function connected(){
     connected=true;
     console.log("connected=true");
-    $("#message").html("connected=true");
+    $("#message").append("\nconnected=true");
     /* send connected signal to pi */
   /*  bluetoothSerial.write("connected"); */
     con_success(connected);
