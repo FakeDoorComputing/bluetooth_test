@@ -35,9 +35,9 @@ document.addEventListener('deviceready',
 }
   // connection successful
   function con_success(connected){
-    console.log("con_success")
+    console.log("con_success, "+connected)
     /* keep looping through con_success*/
-    while(connected==true){
+    while(connected){
     //  console.log("in the loop")
       /* keep listening for data from pi */
     //  $("#message").append("\nListening....");
