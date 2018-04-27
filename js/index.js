@@ -30,11 +30,11 @@ document.addEventListener('deviceready',
     $("#message").append("<p>\n\nconnected=true</p>");
     /* send connected signal to pi */
   /*  bluetoothSerial.write("connected"); */
-    con_success(connected);
+    con_success();
   }
 }
   // connection successful
-  function con_success(connected){
+  function con_success(){
     console.log("con_success, "+connected)
     /* keep looping through con_success*/
     while(connected){
@@ -49,7 +49,7 @@ document.addEventListener('deviceready',
         console.log("no data recieved");
       });
       /* empty the buffer */
-    //  console.log("clear the buffer")
+      console.log("clear the buffer")
     //  bluetoothSerial.clear();
     }
   }
