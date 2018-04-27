@@ -21,10 +21,10 @@ document.addEventListener('deviceready',
     $("#message").append("\nBluetooth is on");
     console.log("bluetooth is on"); /* for development */
     /* connect to the hard coded MAC address of the PI */
-    bluetoothSerial.connect(mac, connected, con_failure);
+    bluetoothSerial.connect(mac, app.connected, con_failure);
   }
 
-  var connected: function(){
+  var app={ connected: function(){
     connected=true;
     console.log("connected=true");
     $("#message").append("\nconnected=true");
@@ -32,7 +32,7 @@ document.addEventListener('deviceready',
   /*  bluetoothSerial.write("connected"); */
     con_success(connected);
   }
-
+}
   // connection successful
   function con_success(connected){
     console.log("con_success")
