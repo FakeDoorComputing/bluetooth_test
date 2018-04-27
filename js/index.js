@@ -19,9 +19,16 @@ document.addEventListener('deviceready',
   // connect to the raspberry pi
   function connect(){
     $("#message").append("<p>\n\nBluetooth is on</p>");
-    console.log("bluetooth is on"); /* for development */
+    console.log("bluetooth is on at mac "+app.mac_add); /* for development */
     /* connect to the hard coded MAC address of the PI */
-    bluetoothSerial.connect(app.mac_add, app.connected, app.con_failure);
+    bluetoothSerial.connect(app.mac_add, connectedIsTrue, app.con_failure);
+  }
+
+  function connectedIsTrue(){
+    connected=true;
+    console.log("connected=true");
+    $("#message").append("<p>\n\nConnected=true</p>");
+    con_success();
   }
 
   var app={
@@ -29,9 +36,7 @@ document.addEventListener('deviceready',
     connected: function(){
       connected=true;
       console.log("connected=true");
-      $("#message").append("<p>\n\nconnected=true</p>");
-    /* send connected signal to pi */
-  /*  bluetoothSerial.write("connected"); */
+      $("#message").append("<p>\n\nConnected=true</p>");
       con_success();
     },
   // connection unsuccessful
