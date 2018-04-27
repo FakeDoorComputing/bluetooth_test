@@ -16,7 +16,7 @@ function check_conn(){
 // connect to the raspberry pi
 function connect(){
   $("#message").append("<p>\n\nBluetooth is on</p>");
-  console.log("bluetooth is on at mac "+app.mac_add);
+  console.log("bluetooth is on at mac "+mac_add);
   /* connect to the hard coded MAC address of the PI */
   bluetoothSerial.connect(mac_add, con_success, con_failure);
 }
