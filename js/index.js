@@ -24,7 +24,7 @@ document.addEventListener('deviceready',
     bluetoothSerial.connect(mac, connected, con_failure);
   }
 
-  function connected(){
+  var connected: function(){
     connected=true;
     console.log("connected=true");
     $("#message").append("\nconnected=true");
